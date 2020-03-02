@@ -1,0 +1,18 @@
+<template name='ShoppingList'>
+  <h3>This is your shopping list</h3>
+  <ul class="shopping-list">
+    {{#each shopList in shoppingList}}
+      {{#each ingredient in shopList.ingr}}
+        <li>
+          <span class='amount'>
+            {{ingredient.name}} - {{ingredient.amount}}
+          </span>
+        </li>
+      {{/each}}
+    {{else}}
+        <li>
+          Please add <a href='/recipe-book'>recipes</a> to your menu
+        </li>
+    {{/each}}
+  </ul>
+</template>

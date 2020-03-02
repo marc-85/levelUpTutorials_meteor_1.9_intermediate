@@ -1,0 +1,38 @@
+<template name='NewRecipe'>
+  <div class="new-recipe-container">
+    <form class='recipe-form'>
+      Name <input type='text' 
+              placeholder='insert Name'
+              name='name'
+              autocomplete="off"><br/>
+      Description <input type='text' 
+                        placeholder='insert Description'
+                        name='desc'
+                        autocomplete="off"/><br/>
+      Ingredients:<br/>
+      <ul>
+        {{#each ingr in ingredients}}
+        <li>
+          <span>
+            {{ingr.name}} - {{ingr.amount}}
+            <button id='{{@index}}' class='js-delete-ing'>Remove</button>
+          </span>
+        </li>
+        {{/each}}
+      </ul>
+      <form class='js-new-ingredient'>
+        <input type='text'
+               name='boxNewIngredient'
+               placeholder="insert ingredient"
+               autocomplete="off"/>
+        <input type='text' name='quantity'
+               placeholder="quantity"
+               autocomplete="off"/>
+        <input type='submit' value='Add ingredient'/>
+      </form>
+      
+      <br/>
+      <input type='submit' value='Insert Recipe'/>
+    </form>
+  </div>
+</template>

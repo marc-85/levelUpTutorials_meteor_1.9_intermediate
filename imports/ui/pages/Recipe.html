@@ -1,0 +1,35 @@
+<template name='Recipe'>
+  <article class="recipe {{#if item.inMenu}}in-menu{{/if}}">
+    <h3>{{item.recipeName}}</h3>
+    <span>
+      <p>{{item.desc}}</p>
+      {{#if full}}
+        <p class='js-delete-reci'>
+          <i class='fa fa-trash'></i>
+        </p>
+      {{/if}}
+    </span>
+    
+    <p>
+      {{#if full}}
+        {{#each ing in item.ingr}}
+          <span class='ingredient'>
+            {{ing.name}} - {{ing.amount}}
+          </span><br/>
+        {{/each}}
+      {{/if}}
+    </p>
+    {{#if full}}
+    {{else}}
+      <a href='/recipe/{{item.recipeName}}'>View Details</a>
+      {{#if item.inMenu}}
+        <button class="btn-deny toggle-menu" 
+                name="{{item._id}}">Remove from menu</button>
+        <!--<button class="btn-deny ">Remove from menu</button>-->
+      {{else}}
+        <button class="btn-primary toggle-menu"
+                name="{{item._id}}">Add to menu</button>
+      {{/if}}
+    {{/if}}
+  </article>
+</template>

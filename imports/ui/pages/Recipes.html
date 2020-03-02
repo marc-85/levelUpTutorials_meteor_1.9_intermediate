@@ -1,0 +1,16 @@
+<template name='Recipes'>
+  {{#if currentUser}}
+    {{> NewRecipe}}
+
+    <section class='recipes'>
+      {{#each item in recipes}}
+        {{> Recipe item=item full=false}}
+      {{/each}}
+    </section>
+
+  {{else}}
+    <p>You must be logged in order to input recipes.</p>
+  {{/if}}
+  
+</template>
+

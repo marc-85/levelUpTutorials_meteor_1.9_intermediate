@@ -1,0 +1,11 @@
+{
+  "private": {
+    "hello": "Message from Marc: Application started"
+  },
+
+  "public": {
+    "ga": {
+      "account": "UA-XXXXXXXX-X"
+    }
+  }
+}
